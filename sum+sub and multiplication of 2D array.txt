@@ -1,0 +1,141 @@
+**********printing 2D array**************
+
+#include<stdio.h>
+int main()
+{
+    int R, C;
+    printf("enter number of rows: ");
+    scanf("%d", &R);
+    printf("enter number of cols: ");
+    scanf("%d", &C);
+    int matrix[R][C];
+    printf("enter number of elements of the matrix:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    printf("\nthe matrix is:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+**********sum and substraction of (2) 2D array**************
+
+#include<stdio.h>
+int main()
+{
+    int R, C;
+    printf("enter number of rows: ");
+    scanf("%d", &R);
+    printf("enter number of cols: ");
+    scanf("%d", &C);
+    int A[R][C], B[R][C], sum[R][C], sub[R][C];
+    printf("enter number of elements of 1st matrix:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            scanf("%d", &A[i][j]);
+        }
+    }
+    printf("enter number of elements of 2nd matrix:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            scanf("%d", &B[i][j]);
+        }
+    }
+    //sum and sub
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            sum[i][j] = A[i][j] + B[i][j];
+            sub[i][j] = A[i][j] - B[i][j];
+        }
+    }
+    printf("\nsum of the matrices:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            printf("%d ", sum[i][j]);
+        }
+    }
+    printf("\nsub of the matrices:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            printf("%d ", sub[i][j]);
+        }
+    }
+}
+
+**********matrix multiplication of 2D array**************
+
+
+#include<stdio.h>
+int main()
+{
+    int R1, C1, R2, C2;
+    printf("enter number of rows and cols of 1st matrix: ");
+    scanf("%d %d", &R1, &C1);
+    printf("enter number of rows and cols of 2nd matrix: ");
+    scanf("%d %d", &R2, &C2);
+    if(C1 != R2)
+    {
+        printf("multiplication not possible.\n");
+    }
+    int A[R1][C1], B[R2][C2], C[R1][C2];
+    printf("enter number of elements of 1st matrix:\n");
+    for(int i=0; i<R1; i++)
+    {
+        for(int j=0; j<C1; j++)
+        {
+            scanf("%d", &A[i][j]);
+        }
+    }
+    printf("enter number of elements of 2nd matrix:\n");
+    for(int i=0; i<R2; i++)
+    {
+        for(int j=0; j<C2; j++)
+        {
+            scanf("%d", &B[i][j]);
+        }
+    }
+    //initializing result matrix to 0
+    for(int i=0; i<R1; i++)
+        for(int j=0; j<C2; j++)
+            C[i][j] = 0;
+    //multiply matrices
+    for(int i=0; i<R1; i++)
+        {
+            for(int j=0; j<C2; j++)
+            {
+                for(int k=0; k<C1; k++)//goes through the elements also falls under the formula of mult
+                {
+                  C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+    //print it
+    for(int i=0; i<R1; i++)
+        {
+            for(int j=0; j<C2; j++)
+            {
+                printf("%d ", C[i][j]);
+            }
+            printf("\n");
+        }
+}
