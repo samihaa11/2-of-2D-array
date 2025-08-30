@@ -1,0 +1,217 @@
+*********************row wise sum in 2D array*******************
+
+
+#include<stdio.h>
+int main()
+{
+    int R, C;
+    printf("enter number of rows: ");
+    scanf("%d", &R);
+    printf("enter number of cols: ");
+    scanf("%d", &C);
+    int A[R][C];
+    printf("enter number of elements of the matrix:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            scanf("%d", &A[i][j]);
+        }
+    }
+    //row wise sum
+    printf("\nsum of each row:\n");
+    for(int i=0; i<R; i++)
+    {
+        int sum = 0;
+        for(int j=0; j<C; j++)
+        {
+            sum+= A[i][j];
+        }
+        printf("sum of %d row: %d\n", i+1, sum);
+    }
+}
+
+
+*********************coloumn wise sum in 2D array*******************
+
+
+#include<stdio.h>
+int main()
+{
+    int R, C;
+    printf("enter number of rows: ");
+    scanf("%d", &R);
+    printf("enter number of cols: ");
+    scanf("%d", &C);
+    int A[R][C];
+    printf("enter number of elements of the matrix:\n");
+    for(int i=0; i<R; i++)
+    {
+        for(int j=0; j<C; j++)
+        {
+            scanf("%d", &A[i][j]);
+        }
+    }
+    //col wise sum
+    printf("\ncol of each row:\n");
+    for(int j=0; j<C; j++)
+    {
+        int sum = 0;
+        for(int i=0; i<R; i++)
+        {
+            sum+= A[i][j];
+        }
+        printf("sum of %d col: %d\n", j+1, sum);
+    }
+}
+
+
+
+
+*********************diagonal wise sum in 2D array*******************
+
+
+#include<stdio.h>
+int main()
+{
+   int n;
+   printf("enter size of square matrix: ");
+   scanf("%d", &n);
+   int arr[n][n];
+   printf("enter elements: ");
+   for(int i=0; i<n; i++)
+   {
+       for(int j=0; j<n; j++)
+       {
+           scanf("%d", &arr[i][j]);
+       }
+   }
+   //primary diagonal
+   int primarysum=0, secondarysum=0;
+   for(int i=0; i<n; i++)
+   {
+       primarysum+= arr[i][i];//main
+       secondarysum+=arr[i][n-i-1];//starts from top right ends in bottom left
+   }
+   printf("primary diagonal sum:%d\n", primarysum);
+   printf("secondary diagonal sum:%d\n", secondarysum);
+}
+
+
+*********************boundary sum in 2D array*******************
+
+
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("enter size of square matrix: ");
+    scanf("%d", &n);
+    int arr[n][n];
+    printf("enter elements: \n");
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    int sum = 0;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            if(i==0 || i == n-1 || j==0 || j==n-1 )
+                sum+= arr[i][j];
+        }
+    }
+    printf("boundary sum = %d\n", sum);
+}
+
+
+
+*********************upper triangle sum in 2D array*******************
+
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("enter size of square matrix: ");
+    scanf("%d", &n);
+    int arr[n][n];
+    printf("enter elements: \n");
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    int sum = 0;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=i; j<n; j++)
+        {
+            sum+=arr[i][j];
+        }
+    }
+    printf("upper triangle sum:%d\n", sum);
+}
+
+
+
+*********************lower triangle sum in 2D array*******************
+
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("enter size of square matrix: ");
+    scanf("%d", &n);
+    int arr[n][n];
+    printf("enter elements: \n");
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    int sum = 0;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<i; j++) //change is here
+        {
+            sum+=arr[i][j];
+        }
+    }
+    printf("upper triangle sum:%d\n", sum);
+}
+
+
+
+
+*********************corners sum in 2D array*******************
+
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("enter size of square matrix: ");
+    scanf("%d", &n);
+    int arr[n][n];
+    printf("enter elements: \n");
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    int sum = arr[0][0] + arr[0][n-1] + arr[n-1][0] +arr[n-1][n-1];
+    printf("corners sum: %d\n", sum);
+}
